@@ -48,6 +48,17 @@ const pAequorFactory = (specimenNum) => {
       };
       return (counter/15) >= 0.6 
     },
+
+    //Complement strand method returns a complementary strand of DNA. All 'A' bases return as 'T' and vice versa; all 'C bases return as 'G' and vice versa
+    complementStrand() {
+      this.dna.forEach(function(base, i, dna) {
+        if (base === 'A') dna[i] = 'T';
+        if (base === 'T') dna[i] = 'A';
+        if (base === 'C') dna[i] = 'G';
+        if (base === 'G') dna[i] = 'C';
+      });
+      return this.dna;
+    }
   };
 };
 
@@ -66,14 +77,15 @@ const populateSurvivalArray = () => {
 
 
 //TESTS:
-console.log(populateSurvivalArray().length);
-console.log(populateSurvivalArray());
+//console.log(populateSurvivalArray().length);
+//console.log(populateSurvivalArray());
+//let pTest = pAequorFactory();
+//console.log(pTest)
+//console.log(pTest.complementStrand());
 
 
 
 /* MORE CHALLENGES
-Create a .complementStrand() method to the factory function’s object that returns the complementary DNA strand. The rules are that 'A's match with 'T's and vice versa. Also, 'C's match with 'G's and vice versa.
-
 Use the .compareDNA() to find the two most related instances of pAequor.
 */
 
